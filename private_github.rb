@@ -33,6 +33,6 @@ end
 #g.user_repos("lynchd2")
 #p g.commits("lynchd2", "vikingcodeschool_github_api_optional")
 
-puts %x`git add .`
-puts %x`git commit -am "Message"`
-puts %x`git push origin master`
+%x`git add .`
+%x`git commit -am "Message"`
+%x`git push origin master`
