@@ -15,9 +15,20 @@ class GithubAPI
     @github.repos.list user: name
   end
 
+  def commits(name, repo)
+    array = []
+    response = @github.repos.commits.list name, repo, sha: ''
+    response.each_page do |page|
+      page.each do |repo|
+         array << "#{repo.commit.author.date} : #{repo.commit.message} : #{repo.commit.author.name}"
+      end
+    end
+    array.sort.reverse[0..9]
+  end
 end
 
 
 
 g = GithubAPI.new
-p g.user_repos("lynchd2")
+g.user_repos("lynchd2")
+p g.commits("lynchd2", "vikingcodeschool_github_api_optional")
