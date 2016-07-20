@@ -29,6 +29,10 @@ end
 
 
 
-g = GithubAPI.new
-g.user_repos("lynchd2")
-p g.commits("lynchd2", "vikingcodeschool_github_api_optional")
+#g = GithubAPI.new
+#g.user_repos("lynchd2")
+#p g.commits("lynchd2", "vikingcodeschool_github_api_optional")
+
+puts %x`git add .`
+puts %x`git commit -am "Message"`
+puts %x`git push origin master`
