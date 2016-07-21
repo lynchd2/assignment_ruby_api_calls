@@ -29,10 +29,10 @@ end
 
 
 
-#g = GithubAPI.new
-#g.user_repos("lynchd2")
-#p g.commits("lynchd2", "vikingcodeschool_github_api_optional")
+g = GithubAPI.new
+g.user_repos("lynchd2")
+new_date = g.commits("lynchd2", "vikingcodeschool_github_api_optional")[0].split(" ")[0] = "987-07-20T23:21:14Z"
 
 %x`git add .`
-%x`git commit -am "Message"`
+%x`git commit -am "Message" --date #{new_date} `
 %x`git push origin master`
